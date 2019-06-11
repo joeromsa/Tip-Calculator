@@ -1,10 +1,10 @@
 function calculateTip() {
-    var amt = document.getElementById("billamt").value;
-    var per = serviceConv(document.getElementById("service").value);
+    var amt = getAmt();
+    var per = getPer();
     
     var tip = amt * per;
 
-    var split = document.getElementById('peopleamt').value;
+    var split = getSplit();
 
     tip = tip / split;
     tip = Math.round(tip * 100) / 100;
@@ -13,6 +13,21 @@ function calculateTip() {
     tip = round(tip);
     
     return tip;
+}
+
+function getAmt() {
+    var amt = document.getElementById("billamt").value;
+    return amt;
+}
+
+function getPer() {
+    var per = serviceConv(document.getElementById("service").value);
+    return per;
+}
+
+function getSplit() {
+    var split = document.getElementById("peopleamt").value;
+    return split;
 }
 
 function round(number) {
