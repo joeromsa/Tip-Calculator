@@ -37,11 +37,30 @@ function round(number) {
     {
         rounded = Number.parseFloat(number).toPrecision(3);
     }
+    else if (checkDigit(number))
+    {
+        rounded = number + '0';
+    }
     else 
     {
         rounded = number;
     }
     return rounded;
+}
+
+function checkDigit(number) {
+    var boo;
+
+    if (number == .1 || number == .2 || number == .3 || number == .4 || number == .5 || number == .6 || number == .7 || number == .8 || number == .9)
+    {
+        boo = true;
+    }
+    else 
+    {
+        boo = false;
+    }
+
+    return boo;
 }
 
 function serviceConv(service) {
