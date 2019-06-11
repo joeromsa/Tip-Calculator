@@ -63,9 +63,13 @@ function serviceConv(service) {
     {
         percent = .1;
     }
-    else
+    else if (service == 'terrible')
     {
         percent = .05;
+    }
+    else
+    {
+        percent = '';
     }
 
     return percent;
@@ -86,11 +90,23 @@ function replace(tip) {
     }
 }
 
+function isEmpty() {
+    var empty;
+    if (getAmt() === '' || getPer() === '' || getSplit() === '')
+    {
+        empty = true;
+    }
+    else 
+    {
+        empty = false;
+    }
+
+    return empty;
+}
+
 function buttonEvent() {
     var tip = calculateTip();
     replace(tip);
-
-
 }
 
 calculate.addEventListener('click', buttonEvent);
