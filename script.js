@@ -1,3 +1,4 @@
+// Calculates tip. 
 function calculateTip() {
     var amt = getAmt();
     var per = getPer();
@@ -15,21 +16,25 @@ function calculateTip() {
     return tip;
 }
 
+// Gets the bill amount.
 function getAmt() {
     var amt = document.getElementById("billamt").value;
     return amt;
 }
 
+// Gets the tip percentage.
 function getPer() {
     var per = serviceConv(document.getElementById("service").value);
     return per;
 }
 
+// Gets the amount of people the bill is being split with.
 function getSplit() {
     var split = document.getElementById("peopleamt").value;
     return split;
 }
 
+// Rounds tip if needed to 2 decimal places.
 function round(number) {
     var rounded;
 
@@ -48,6 +53,7 @@ function round(number) {
     return rounded;
 }
 
+// Checks to see if tip is a digit in the tenth place.
 function checkDigit(number) {
     var boo;
 
@@ -63,6 +69,7 @@ function checkDigit(number) {
     return boo;
 }
 
+// Gets the tip amount.
 function serviceConv(service) {
     var percent;
 
@@ -94,6 +101,7 @@ function serviceConv(service) {
     return percent;
 }
 
+// Replaces the html with the new tip amount.
 function replace(tip) {
     var old = document.getElementById("tip").innerHTML;
     var new1 = old.replace(old, tip);
@@ -110,6 +118,7 @@ function replace(tip) {
     }
 }
 
+// Replaces empty with an Error message.
 function replaceEmpty() {
     var old = document.getElementById("tip").innerHTML;
     var new1 = old.replace(old, "ERROR: Missing Info");
@@ -120,6 +129,7 @@ function replaceEmpty() {
     document.getElementById('')
 }
 
+// Checks if any field has been left empty.
 function isEmpty() {
     var empty;
     if (getAmt() === '' || getPer() === '' || getSplit() === '')
@@ -134,6 +144,7 @@ function isEmpty() {
     return empty;
 }
 
+// Executes the button event.
 function buttonEvent() {
     var tip = calculateTip();
 
@@ -147,5 +158,6 @@ function buttonEvent() {
     }
 }
 
+// Button click listener.
 calculate.addEventListener('click', buttonEvent);
 
