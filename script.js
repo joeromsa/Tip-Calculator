@@ -79,6 +79,7 @@ function replace(tip) {
     var old = document.getElementById("tip").innerHTML;
     var new1 = old.replace(old, tip);
     document.getElementById("tip").innerHTML = new1;
+    document.getElementById('dolla').innerHTML = '$';
 
     if (document.getElementById('peopleamt').value == 1)
     {
@@ -88,6 +89,16 @@ function replace(tip) {
     {
         document.getElementById("each").innerHTML = "each";
     }
+}
+
+function replaceEmpty() {
+    var old = document.getElementById("tip").innerHTML;
+    var new1 = old.replace(old, "ERROR: Missing Info");
+    document.getElementById("tip").innerHTML = new1;
+
+    document.getElementById("each").innerHTML = '';
+    document.getElementById('dolla').innerHTML = '';
+    document.getElementById('')
 }
 
 function isEmpty() {
@@ -106,7 +117,15 @@ function isEmpty() {
 
 function buttonEvent() {
     var tip = calculateTip();
-    replace(tip);
+
+    if (isEmpty())
+    {
+        replaceEmpty();
+    }
+    else
+    {
+        replace(tip);
+    }
 }
 
 calculate.addEventListener('click', buttonEvent);
